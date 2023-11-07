@@ -15,11 +15,11 @@ function limpar() {
 }
 
 function validar() {
-    if (nota1 < 0 || nota1 > 10 || nota1 == '') {
+    if (nota1 < 0 || nota1 > 10) {
         alert('Digite somente valores entre 0 e 10');
         document.querySelector('#nota1').focus();
         return false;
-    } else if (nota2 < 0 || nota2 > 10 || nota2 == '') {
+    } else if (nota2 < 0 || nota2 > 10) {
         alert('Digite somente valores entre 0 e 10');
         document.querySelector('#nota2').focus();
         return false;
