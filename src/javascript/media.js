@@ -15,33 +15,50 @@ function limpar() {
 }
 
 function validar() {
-    if (nota1 < 0 || nota1 > 10) {
+    if (nota1 < 0 || nota1 > 10 || nota1 == '') {
         alert('Digite somente valores entre 0 e 10');
         document.querySelector('#nota1').focus();
         return false;
-    } else if (nota2 < 0 || nota2 > 10) {
+    } else if (nota2 < 0 || nota2 > 10 || nota2 === '') {
         alert('Digite somente valores entre 0 e 10');
         document.querySelector('#nota2').focus();
         return false;
+    } else if (nota3 < 0 || nota3 > 10 || nota3 === '') {
+        alert('Digite somente valores entre 0 e 10');
+        document.querySelector('#nota3').focus();
+        return false;
+    } else if (nota4 < 0 || nota4 > 10 || nota4 === '') {
+        alert('Digite somente valores entre 0 e 10');
+        document.querySelector('#nota4').focus();
+        return false;
     }
+    return true
 }
 
 function calcular() {
-    nota1 = parseInt(document.querySelector('#nota1').value);
-    nota2 = parseInt(document.querySelector('#nota2').value);
-    nota3 = parseInt(document.querySelector('#nota3').value);
-    nota4 = parseInt(document.querySelector('#nota4').value);
+    nota1 = document.querySelector('#nota1').value;
+    nota2 = document.querySelector('#nota2').value;
+    nota3 = document.querySelector('#nota3').value;
+    nota4 = document.querySelector('#nota4').value;
 
-    validar();
+    validacao = validar();
 
-    media = ((nota1 + nota2 + nota3 + nota4) / 4)
-    document.querySelector('#media').innerHTML = media;
+    if (validacao) {
+        nota1 = parseInt(nota1)
+        nota2 = parseInt(nota2)
+        nota3 = parseInt(nota3)
+        nota4 = parseInt(nota4)
 
-    if (media >= 7) {
-        document.querySelector('#situacao').innerHTML = 'APROVADO';
+        media = ((nota1 + nota2 + nota3 + nota4) / 4)
+        document.querySelector('#media').innerHTML = media;
+
+        if (media >= 7) {
+            document.querySelector('#situacao').innerHTML = 'APROVADO';
+        } else {
+            document.querySelector('#situacao').innerHTML = 'REPROVADO';
+        }
+        return true
+    } else {
+        return false
     }
-    else{
-        document.querySelector('#situacao').innerHTML = 'REPROVADO';
-    }
-
 }
