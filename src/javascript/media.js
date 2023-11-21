@@ -4,6 +4,7 @@ let nota3;
 let nota4;
 let media;
 let validacao;
+const imgAprRep = document.querySelector('#imgAprovadoReprovado');
 
 function limpar() {
     document.querySelector('#nota1').value = '';
@@ -12,6 +13,9 @@ function limpar() {
     document.querySelector('#nota4').value = '';
     document.querySelector('#media').innerHTML = '-';
     document.querySelector('#situacao').innerHTML = '-';
+    imgAprRep.setAttribute('src' , '');
+    document.querySelector('#situacao').removeAttribute('class' , 'bg-danger');
+    document.querySelector('#situacao').removeAttribute('class' , 'bg-success');
 }
 
 function validar() {
@@ -58,10 +62,12 @@ function calcular() {
         if (media >= 7) {
             document.querySelector('#situacao').innerHTML = 'APROVADO';
             document.querySelector('#situacao').setAttribute('class' , 'bg-success');
+            imgAprRep.setAttribute('src' , '../../img/aprovado.jpg')
 
         } else {
             document.querySelector('#situacao').innerHTML = 'REPROVADO';
             document.querySelector('#situacao').setAttribute('class' , 'bg-danger');
+            imgAprRep.setAttribute('src' , '../../img/reprovado.jpg')
 
         }
         return true;
