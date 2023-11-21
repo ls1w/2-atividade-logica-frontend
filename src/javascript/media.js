@@ -19,14 +19,17 @@ function validar() {
         alert('Digite somente valores entre 0 e 10');
         document.querySelector('#nota1').focus();
         return false;
+
     } else if (nota2 < 0 || nota2 > 10 || nota2 === '') {
         alert('Digite somente valores entre 0 e 10');
         document.querySelector('#nota2').focus();
         return false;
+
     } else if (nota3 < 0 || nota3 > 10 || nota3 === '') {
         alert('Digite somente valores entre 0 e 10');
         document.querySelector('#nota3').focus();
         return false;
+
     } else if (nota4 < 0 || nota4 > 10 || nota4 === '') {
         alert('Digite somente valores entre 0 e 10');
         document.querySelector('#nota4').focus();
@@ -44,21 +47,26 @@ function calcular() {
     validacao = validar();
 
     if (validacao) {
-        nota1 = parseInt(nota1)
-        nota2 = parseInt(nota2)
-        nota3 = parseInt(nota3)
-        nota4 = parseInt(nota4)
+        nota1 = parseInt(nota1);
+        nota2 = parseInt(nota2);
+        nota3 = parseInt(nota3);
+        nota4 = parseInt(nota4);
 
-        media = ((nota1 + nota2 + nota3 + nota4) / 4)
+        media = ((nota1 + nota2 + nota3 + nota4) / 4);
         document.querySelector('#media').innerHTML = media;
 
         if (media >= 7) {
             document.querySelector('#situacao').innerHTML = 'APROVADO';
+            document.querySelector('#situacao').setAttribute('class' , 'bg-success');
+
         } else {
             document.querySelector('#situacao').innerHTML = 'REPROVADO';
+            document.querySelector('#situacao').setAttribute('class' , 'bg-danger');
+
         }
-        return true
+        return true;
+
     } else {
-        return false
+        return false;
     }
 }
